@@ -1,4 +1,4 @@
-package com.semaphores.gofind.Models
+package com.semaphores.techathlon.Models
 
 import android.support.annotation.DrawableRes
 

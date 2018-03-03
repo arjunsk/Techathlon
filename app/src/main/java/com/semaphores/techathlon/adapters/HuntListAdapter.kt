@@ -4,7 +4,7 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.semaphores.gofind.Models.Hunt
+import com.semaphores.techathlon.Models.Hunt
 import com.semaphores.techathlon.R
 import kotlinx.android.synthetic.main.hunt.view.*
 

@@ -1,10 +1,10 @@
-package com.semaphores.gofind.Adapters
+package com.semaphores.techathlon.Adapters
 
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.view.View
-import com.semaphores.gofind.Models.Clue
+import com.semaphores.techathlon.Models.Clue
 import com.semaphores.techathlon.R
 import kotlinx.android.synthetic.main.clue.view.*
 import kotlinx.android.synthetic.main.clue_image.view.*
