@@ -1,12 +1,14 @@
 package com.semaphores.techathlon
 
+import android.app.Dialog
+import android.app.ProgressDialog
 import android.content.Intent
 import android.os.Bundle
+import android.os.Message
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.text.Html
 import com.semaphores.gofind.Adapters.HuntListAdapter
-import com.semaphores.techathlon.Models.Hunt
 import kotlinx.android.synthetic.main.activity_choose.*
 import kotlinx.android.synthetic.main.hunts.*
 import com.google.firebase.database.DatabaseReference
@@ -23,7 +25,8 @@ class ChooseHuntActivity : AppCompatActivity()
     val TAG = "ChooseHuntActivity"
     val huntList = mutableListOf<HuntDocument>()
     lateinit var huntListAdapter: HuntListAdapter
-    lateinit var contests_collection: DatabaseReference
+    lateinit var huntsCollection: DatabaseReference
+    lateinit var progressDialog: Dialog
 
 
     override fun onCreate(savedInstanceState: Bundle?)
@@ -40,7 +43,9 @@ class ChooseHuntActivity : AppCompatActivity()
 
     fun init()
     {
-        contests_collection = FirebaseHelper.getRef_contests()
+        huntsCollection = FirebaseHelper.getRef_contests()
+        progressDialog = ProgressDialog(this@ChooseHuntActivity)
+        progressDialog.show()
     }
 
     fun initHunts()
@@ -48,18 +53,19 @@ class ChooseHuntActivity : AppCompatActivity()
         //addSampleHunts()
         huntList.clear()
 
-        contests_collection.addListenerForSingleValueEvent(object : ValueEventListener
+        huntsCollection.addListenerForSingleValueEvent(object : ValueEventListener
         {
             override fun onDataChange(dataSnapshot: DataSnapshot)
             {
-                //start progressbar
+
                 for (contestSnapshot in dataSnapshot.children)
                 {
                     val contest = contestSnapshot.getValue(HuntDocument::class.java)
                     contest!!.key = contestSnapshot.key
                     huntList.add(contest)
                 }
-                //stop progressbar
+
+                progressDialog.dismiss()
                 initRecyclerView()
             }
 

@@ -1,16 +1,17 @@
 package com.semaphores.techathlon.Adapters
 
 import android.support.v7.widget.RecyclerView
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.view.View
-import com.semaphores.techathlon.Models.Clue
 import com.semaphores.techathlon.R
+import com.semaphores.techathlon.pojo.ClueDocument
 import kotlinx.android.synthetic.main.clue.view.*
 import kotlinx.android.synthetic.main.clue_image.view.*
 import kotlinx.android.synthetic.main.clue_number.view.*
 
-class ClueListAdapter(val clues: MutableList<Clue>) : RecyclerView.Adapter<ClueListAdapter.ClueHolder>()
+class ClueListAdapter(val clues: MutableList<ClueDocument>) : RecyclerView.Adapter<ClueListAdapter.ClueHolder>()
 {
     val TAG = "ClueListAdapter"
 
@@ -27,13 +28,22 @@ class ClueListAdapter(val clues: MutableList<Clue>) : RecyclerView.Adapter<ClueL
     override fun getItemViewType(position: Int): Int
     {
         if (clues[position].isLocked)
+        {
+            Log.i(TAG, "clue $position is locked")
             return 0
+        }
         else
         {
             if (clues[position].isImage)
+            {
+                Log.i(TAG, "clue $position is image")
                 return 2
+            }
             else
+            {
+                Log.i(TAG, "clue $position is text")
                 return 1
+            }
         }
     }
 
@@ -51,7 +61,7 @@ class ClueListAdapter(val clues: MutableList<Clue>) : RecyclerView.Adapter<ClueL
     {
         val TAG = "ClueHolder"
 
-        fun bind(clue: Clue)
+        fun bind(clue: ClueDocument)
         {
             with(clue)
             {
@@ -66,7 +76,7 @@ class ClueListAdapter(val clues: MutableList<Clue>) : RecyclerView.Adapter<ClueL
                     2 ->
                     {
                         itemView.clue_number.text = (adapterPosition + 1).toString()
-                        itemView.clue_image.clue_image.setImageResource(imageRes!!)
+                        itemView.clue_image.clue_image.setImageResource(R.drawable.clue_1)
                     }
 
                     else -> return

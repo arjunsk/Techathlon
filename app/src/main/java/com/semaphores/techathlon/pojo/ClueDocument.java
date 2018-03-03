@@ -3,31 +3,30 @@ package com.semaphores.techathlon.pojo;
 import com.google.firebase.database.IgnoreExtraProperties;
 
 @IgnoreExtraProperties
-public class ClueDocument
-{
+public class ClueDocument {
 
     private String key;
-    private boolean endpoint;
-    private int index;
     private double lat;
     private double lon;
-    private String next_clue;
+    private String description;
+    private boolean isImage;
+    private boolean isLocked;
 
     public ClueDocument(){
         super();
-        this.endpoint=true;
-        this.index = 0;
         this.lat=0.0;
         this.lon = 0.0;
-        this.next_clue="";
+        this.description="";
+        this.isLocked = true;
+        this.isImage = false;
     }
 
-    public ClueDocument(Boolean endpoint, Integer index, Double lat, Double lon, String next_clue){
-        this.endpoint=endpoint;
-        this.index = index;
+    public ClueDocument(String description, boolean isImage, double lat, double lon){
         this.lat=lat;
         this.lon = lon;
-        this.next_clue=next_clue;
+        this.description=description;
+        this.isImage = isImage;
+        this.isLocked = true;
     }
 
 
@@ -38,36 +37,43 @@ public class ClueDocument
     }
 
 
-    public boolean getEndpoint() {
-        return endpoint;
-    }
-    public int getIndex() {
-        return index;
-    }
+
     public double getLat() {
         return lat;
     }
     public double getLon() {
         return lon;
     }
-    public String getNext_clue() {
-        return next_clue;
+    public String getDescription() {
+        return description;
+    }
+    public boolean isImage() {
+        return isImage;
+    }
+    public boolean isLocked() {
+        return isLocked;
     }
 
 
-    public void setEndpoint(boolean endpoint) {
-        this.endpoint = endpoint;
-    }
-    public void setIndex(int index) {
-        this.index = index;
-    }
+
     public void setLat(double lat) {
         this.lat = lat;
     }
     public void setLon(double lon) {
         this.lon = lon;
     }
-    public void setNext_clue(String next_clue) {
-        this.next_clue = next_clue;
+    public void setDescription(String next_clue) {
+        this.description = next_clue;
     }
+
+    public void setImage(boolean isImage)
+    {
+        this.isImage = isImage;
+    }
+
+    public void setLocked(boolean isLocked)
+    {
+        this.isLocked = isLocked;
+    }
+
 }
