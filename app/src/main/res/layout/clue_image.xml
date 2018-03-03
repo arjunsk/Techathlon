@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/padding_normal"
+    android:layout_marginLeft="@dimen/padding_normal"
+    android:layout_marginRight="@dimen/padding_normal">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/fab">
+
+        <include layout="@layout/clue_number"/>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@+id/clue_number"
+            android:scaleType="centerCrop"
+            android:src="@drawable/map_thumbnail_2"
+            android:id="@+id/clue_image"/>
+
+    </RelativeLayout>
+
+</android.support.v7.widget.CardView>

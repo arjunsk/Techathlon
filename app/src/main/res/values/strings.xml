@@ -4,4 +4,8 @@
     <string name="enter_clue">Enter clue</string>
     <string name="save_button">Save</string>
     <string name="cancel_button">Cancel</string>
+
+    <string name="clue_sample">I was the pride of those who owned me and a murder sealed my fate for years my true identity went unknown</string>
+    <string name="clue_time_sample">12:45 PM</string>
+    <string name="clue_number_sample">1</string>
 </resources>
