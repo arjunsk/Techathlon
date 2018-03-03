@@ -8,6 +8,6 @@ class PlotMapActivity : AppCompatActivity()
     override fun onCreate(savedInstanceState: Bundle?)
     {
         super.onCreate(savedInstanceState)
-        setContentView()
+        setContentView(R.layout.activity_plot_map)
     }
 }
