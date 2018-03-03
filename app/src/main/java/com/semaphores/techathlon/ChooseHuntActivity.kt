@@ -9,22 +9,65 @@ import com.semaphores.gofind.Adapters.HuntListAdapter
 import com.semaphores.techathlon.Models.Hunt
 import kotlinx.android.synthetic.main.activity_choose.*
 import kotlinx.android.synthetic.main.hunts.*
+import com.google.firebase.database.DatabaseReference
+import com.semaphores.techathlon.firebase.FirebaseHelper
+import com.semaphores.techathlon.pojo.HuntDocument
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.ValueEventListener
+import android.util.Log
+
 
 class ChooseHuntActivity : AppCompatActivity()
 {
     val TAG = "ChooseHuntActivity"
-    val huntList = mutableListOf<Hunt>()
+    val huntList = mutableListOf<HuntDocument>()
     lateinit var huntListAdapter: HuntListAdapter
+    lateinit var contests_collection: DatabaseReference
+
 
     override fun onCreate(savedInstanceState: Bundle?)
     {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_choose)
 
+        init()
         initUI()
         initHunts()
         initRecyclerView()
         initListeners()
+    }
+
+    fun init()
+    {
+        contests_collection = FirebaseHelper.getRef_contests()
+    }
+
+    fun initHunts()
+    {
+        //addSampleHunts()
+        huntList.clear()
+
+        contests_collection.addListenerForSingleValueEvent(object : ValueEventListener
+        {
+            override fun onDataChange(dataSnapshot: DataSnapshot)
+            {
+                //start progressbar
+                for (contestSnapshot in dataSnapshot.children)
+                {
+                    val contest = contestSnapshot.getValue(HuntDocument::class.java)
+                    contest!!.key = contestSnapshot.key
+                    huntList.add(contest)
+                }
+                //stop progressbar
+                initRecyclerView()
+            }
+
+            override fun onCancelled(databaseError: DatabaseError)
+            {
+                Log.e(TAG, "Data Fetch Cancelled")
+            }
+        })
     }
 
     fun initUI()
@@ -32,26 +75,23 @@ class ChooseHuntActivity : AppCompatActivity()
         supportActionBar?.setTitle(Html.fromHtml("<font color='#FAFAFA'>" + getString(R.string.app_name) + "</font>"))
     }
 
-    fun initHunts()
-    {
-        addSampleHunts()
-    }
-
     fun initRecyclerView()
     {
         huntListAdapter = HuntListAdapter(huntList,
                 object: HuntListAdapter.onClickShare
                 {
-                    override fun invoke(hunt: Hunt)
+                    override fun invoke(hunt: HuntDocument)
                     {
                     }
 
                 },
                 object: HuntListAdapter.onClickJoin
                 {
-                    override fun invoke(hunt: Hunt)
+                    override fun invoke(hunt: HuntDocument)
                     {
-                        startActivity(Intent(this@ChooseHuntActivity, MainActivity::class.java))
+                        val intent = Intent(this@ChooseHuntActivity, TreasureMapActivity::class.java)
+                        intent.putExtra("HUNT_ID", hunt.key);
+                        startActivity(intent);
                     }
 
                 })
@@ -63,11 +103,5 @@ class ChooseHuntActivity : AppCompatActivity()
     fun initListeners()
     {
         fab.setOnClickListener { startActivity(Intent(this@ChooseHuntActivity, PlotMapActivity::class.java)) }
-    }
-
-    fun addSampleHunts()
-    {
-        huntList.add(Hunt(getString(R.string.hunt_sample_0), getString(R.string.hunt_description_sample_0), R.drawable.map_thumbnail_0, getString(R.string.hunt_prize_sample_0), 0, false))
-        huntList.add(Hunt(getString(R.string.hunt_sample_1), getString(R.string.hunt_description_sample_1), R.drawable.map_thumbnail_1, getString(R.string.hunt_prize_sample_1), 0, false))
     }
 }

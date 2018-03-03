@@ -16,9 +16,9 @@ import kotlinx.android.synthetic.main.clue_image.view.*
 import kotlinx.android.synthetic.main.clue_number.view.*
 import kotlinx.android.synthetic.main.clues.*
 
-class MainActivity : AppCompatActivity()
+class TreasureMapActivity : AppCompatActivity()
 {
-    val TAG = "MainActivity"
+    val TAG = "TreasureMapActivity"
     var totalClues = 12
     var currentClue = -1
     var isNewClueReceived = false
@@ -30,7 +30,7 @@ class MainActivity : AppCompatActivity()
     override fun onCreate(savedInstanceState: Bundle?)
     {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_treasure_map)
 
         initUI()
         initRecyclerView()
@@ -72,7 +72,7 @@ class MainActivity : AppCompatActivity()
     {
         clueListAdapter = ClueListAdapter(clueList)
         clues_list_recycler_view.adapter = clueListAdapter
-        layoutManager = LinearLayoutManager(this@MainActivity)
+        layoutManager = LinearLayoutManager(this@TreasureMapActivity)
         clues_list_recycler_view.layoutManager = layoutManager
     }
 
@@ -125,7 +125,7 @@ class MainActivity : AppCompatActivity()
     fun onNewClueReceived()
     {
         unlockNextClue()
-        val dialogBuilder = AlertDialog.Builder(this@MainActivity)
+        val dialogBuilder = AlertDialog.Builder(this@TreasureMapActivity)
         var clueView : View = layoutInflater.inflate(R.layout.clue, null)
         with (clueList[currentClue])
         {

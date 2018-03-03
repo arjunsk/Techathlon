@@ -20,7 +20,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".MainActivity"
+            android:name=".TreasureMapActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.MainActivity">
         </activity>

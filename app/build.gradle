@@ -4,6 +4,8 @@ apply plugin: 'kotlin-android'
 
 apply plugin: 'kotlin-android-extensions'
 
+
+
 android {
     compileSdkVersion 26
     defaultConfig {
@@ -32,4 +34,23 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.1'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
+
+    //Firebase
+    compile 'com.google.firebase:firebase-core:11.8.0'
+    compile 'com.google.firebase:firebase-database:11.8.0'
+
+    //Map
+    compile 'com.google.android.gms:play-services-maps:11.8.0'
+    compile 'com.google.android.gms:play-services-location:11.8.0'
+
+    //Map Marker
+    compile 'com.google.maps.android:android-maps-utils:0.4.4'
+
+    // Location
+    compile 'io.nlopez.smartlocation:library:3.3.3'
+
+    //UI LOader
+    compile 'cc.cloudist.acplibrary:library:1.2.1'
 }
+
+apply plugin: 'com.google.gms.google-services'

@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "512842330754",
+    "firebase_url": "https://techathlon-a3c62.firebaseio.com",
+    "project_id": "techathlon-a3c62",
+    "storage_bucket": "techathlon-a3c62.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:512842330754:android:b969af9910eaafec",
+        "android_client_info": {
+          "package_name": "com.semaphores.techathlon"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "512842330754-ki7rfoljuem3va7knd4824r0iklc6nca.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDqILRcBbKAzrTXnQzQljrSURSrF7SOm_Y"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
