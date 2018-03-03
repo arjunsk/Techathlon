@@ -8,4 +8,14 @@
     <string name="clue_sample">I was the pride of those who owned me and a murder sealed my fate for years my true identity went unknown</string>
     <string name="clue_time_sample">12:45 PM</string>
     <string name="clue_number_sample">1</string>
+
+    <string name="hunt_sample_0">Trivandrum</string>
+    <string name="hunt_description_sample_0">An adventerous hunt in the capital city.</string>
+    <string name="hunt_prize_sample_0">₹5000</string>
+
+    <string name="hunt_sample_1">Calicut</string>
+    <string name="hunt_description_sample_1">An adventerous hunt in the kozhikode.</string>
+    <string name="hunt_prize_sample_1">₹7000</string>
+
+
 </resources>
