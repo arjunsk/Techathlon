@@ -7,6 +7,7 @@
     android:layout_marginEnd="@dimen/padding_large"
     android:src="@drawable/ic_add_24dp"
     android:backgroundTint="@color/fab"
+    app:borderWidth="0dp"
     app:layout_anchor="@id/bottom_sheet_plot_map"
     app:layout_anchorGravity="top|end"
     android:id="@+id/bottom_sheet_add_clue_button"/>
