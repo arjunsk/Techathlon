@@ -3,9 +3,10 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:orientation="vertical"
     app:layout_behavior="@string/bottom_sheet_behavior"
+    app:behavior_peekHeight="?android:attr/actionBarSize"
     android:id="@+id/bottom_sheet_plot_map">
 
     <android.support.v7.widget.Toolbar
@@ -34,7 +35,7 @@
                 android:layout_toEndOf="@+id/flag"
                 android:layout_marginStart="@dimen/padding_normal"
                 android:text="@string/clue_header"
-                android:textSize="@dimen/text_large"
+                android:textSize="@dimen/text_normal"
                 android:textStyle="bold"
                 android:textColor="@color/textPrimary"/>
 
