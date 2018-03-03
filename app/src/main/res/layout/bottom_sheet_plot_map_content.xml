@@ -6,7 +6,7 @@
     android:layout_height="match_parent">
 
     <EditText
-        android:id="@+id/editText"
+        android:id="@+id/bottom_sheet_add_clue_edit_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginEnd="48dp"
@@ -15,12 +15,12 @@
         android:hint="@string/enter_clue"
         android:textSize="@dimen/text_normal"
         android:padding="@dimen/padding_normal"
-        app:layout_constraintEnd_toStartOf="@+id/imageButton"
+        app:layout_constraintEnd_toStartOf="@+id/bottom_sheet_add_image_button"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
 
     <ImageButton
-        android:id="@+id/imageButton"
+        android:id="@+id/bottom_sheet_add_image_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
@@ -33,26 +33,26 @@
         app:srcCompat="@drawable/ic_add_a_photo_24dp"/>
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/bottom_sheet_save_button"
         android:layout_width="180dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:text="@string/save_button"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText"/>
+        app:layout_constraintTop_toBottomOf="@+id/bottom_sheet_add_clue_edit_text"/>
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/bottom_sheet_cancel_button"
         android:layout_width="180dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:text="@string/cancel_button"
-        app:layout_constraintBottom_toBottomOf="@+id/button"
+        app:layout_constraintBottom_toBottomOf="@+id/bottom_sheet_save_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/button"
-        app:layout_constraintTop_toTopOf="@+id/button"
+        app:layout_constraintStart_toEndOf="@+id/bottom_sheet_save_button"
+        app:layout_constraintTop_toTopOf="@+id/bottom_sheet_save_button"
         app:layout_constraintVertical_bias="0.0"/>
 
 
