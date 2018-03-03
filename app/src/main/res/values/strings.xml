@@ -17,5 +17,6 @@
     <string name="hunt_description_sample_1">An adventerous hunt in the kozhikode.</string>
     <string name="hunt_prize_sample_1">₹7000</string>
 
+    <string name="clues_progress">Clues (%1$d/%2$d found)</string>
 
 </resources>

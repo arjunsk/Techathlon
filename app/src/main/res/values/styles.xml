@@ -8,6 +8,22 @@
         <item name="android:navigationBarColor">@color/colorPrimary</item>
     </style>
 
+    <style name="AppTheme.MainActivity" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:windowTranslucentStatus">true</item>
+        <item name="android:navigationBarColor">@color/colorPrimary</item>
+    </style>
+
+    <style name="AppTheme.ChooseHuntActivity"/>
+
+    <style name="DialogAnimation" parent="@android:style/Theme.Dialog">
+        <item name="android:windowAnimationStyle">@style/DialogAnimationStyle</item>
+    </style>
+
+    <style name="DialogAnimationStyle">
+        <item name="android:windowEnterAnimation">@android:anim/slide_in_left</item>
+        <item name="android:windowExitAnimation">@android:anim/slide_out_right</item>
+    </style>
+
     <style name="AppTheme.PlotMapActivity" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="android:navigationBarColor">@color/colorPrimary</item>
         <item name="android:statusBarColor">@color/translucent</item>

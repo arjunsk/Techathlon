@@ -1,19 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
+<android.support.design.widget.CoordinatorLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.semaphores.techathlon.MainActivity">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/maps_background"
+    tools:context="com.semaphores.techathlon.MainActivity"
+    android:id="@+id/mapView">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        android:layout_gravity="bottom|start"
+        android:text="Pos: 2nd"
+        android:textSize="@dimen/text_normal"
+        android:textStyle="bold"
+        android:textColor="@color/textPrimary"
+        android:shadowColor="@color/textShadowIntense"
+        android:shadowDx="1"
+        android:shadowDy="1"
+        android:shadowRadius="4"
+        android:padding="@dimen/padding_large"
+        android:layout_marginBottom="?android:actionBarSize"/>
 
-</android.support.constraint.ConstraintLayout>
+    <include layout="@layout/bottom_sheet"/>
+
+    <android.support.design.widget.FloatingActionButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_linked_camera_black_24dp"
+        android:layout_margin="@dimen/padding_large"
+        app:layout_anchor="@id/bottom_sheet"
+        app:layout_anchorGravity="top|end"
+        app:backgroundTint="@color/fab"
+        android:id="@+id/fab"/>
+
+</android.support.design.widget.CoordinatorLayout>

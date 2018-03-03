@@ -7,6 +7,7 @@ import android.support.v7.widget.LinearLayoutManager
 import android.text.Html
 import com.semaphores.gofind.Adapters.HuntListAdapter
 import com.semaphores.techathlon.Models.Hunt
+import kotlinx.android.synthetic.main.activity_choose.*
 import kotlinx.android.synthetic.main.hunts.*
 
 class ChooseHuntActivity : AppCompatActivity()
@@ -23,6 +24,7 @@ class ChooseHuntActivity : AppCompatActivity()
         initUI()
         initHunts()
         initRecyclerView()
+        initListeners()
     }
 
     fun initUI()
@@ -56,6 +58,11 @@ class ChooseHuntActivity : AppCompatActivity()
 
         hunts_list_recycler_view.adapter = huntListAdapter
         hunts_list_recycler_view.layoutManager = LinearLayoutManager(this@ChooseHuntActivity)
+    }
+
+    fun initListeners()
+    {
+        fab.setOnClickListener { startActivity(Intent(this@ChooseHuntActivity, PlotMapActivity::class.java)) }
     }
 
     fun addSampleHunts()
