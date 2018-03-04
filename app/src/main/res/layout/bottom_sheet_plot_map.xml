@@ -30,6 +30,7 @@
                 android:id="@+id/flag"/>
 
             <TextView
+                android:id="@+id/tv_clue_index"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"

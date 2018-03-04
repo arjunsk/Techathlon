@@ -35,7 +35,7 @@ class HuntListAdapter(val hunts: MutableList<HuntDocument>, val clickShare: Hunt
             {
                 itemView.hunt_name.text = name
                 itemView.hunt_prize.text = prize
-                itemView.hunt_thumbnail.setImageResource(R.drawable.map_thumbnail_0)
+                itemView.hunt_thumbnail.setImageResource(R.drawable.map_thumbnail_1)
                 itemView.hunt_share_button.setOnClickListener { clickShare(this) }
                 itemView.hunt_play_button.setOnClickListener { clickJoin(this) }
             }

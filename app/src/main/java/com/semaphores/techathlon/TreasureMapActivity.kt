@@ -139,11 +139,11 @@ class TreasureMapActivity : AppCompatActivity(), OnMapReadyCallback
                 {
                     val clue = cluesSnapshot.getValue<ClueDocument>(ClueDocument::class.java)
                     clue!!.setKey(cluesSnapshot.key)
+                    if (clue.is_image==1)
+                        Log.i(TAG, "clue isimage")
                     clueList.add(clue)
                 }
 
-                clueList[1].isImage = true
-                clueList[4].isImage = true
 
                 loadMap()
                 startLocationListener()
@@ -213,10 +213,16 @@ class TreasureMapActivity : AppCompatActivity(), OnMapReadyCallback
         var clueView : View = layoutInflater.inflate(R.layout.clue, null)
         with (clueList[currentClue])
         {
-            if (isImage)
+            if (is_image == 1)
             {
                 clueView = layoutInflater.inflate(R.layout.clue_image, null)
-                clueView.clue_image.setImageResource(R.drawable.clue_1)
+                when (currentClue)
+                {
+                    0 -> clueView.clue_image.setImageResource(R.drawable.clue_2)
+                    1 -> clueView.clue_image.setImageResource(R.drawable.clue_3)
+                    2 -> clueView.clue_image.setImageResource(R.drawable.clue_5)
+                    else -> clueView.clue_image.setImageResource(R.drawable.clue_8)
+                }
             }
             else
                 clueView.clue_description.text = description
@@ -313,7 +319,7 @@ class TreasureMapActivity : AppCompatActivity(), OnMapReadyCallback
         googleMap.moveCamera(CameraUpdateFactory.newLatLng(latLng));
 
         if(!zoomedInFirstTime) {
-            googleMap.animateCamera(CameraUpdateFactory.zoomTo(15f));// Move Camera before zoom
+            googleMap.animateCamera(CameraUpdateFactory.zoomTo(18f));// Move Camera before zoom
             zoomedInFirstTime=true;
         }
 
@@ -324,13 +330,13 @@ class TreasureMapActivity : AppCompatActivity(), OnMapReadyCallback
 
         //Log.e(TAG,"Displacement"+displacement);
 
-        if(displacement<=50){
+        if(displacement<=20){
             //set visible the marker
             markers.get(""+currentClue)!!.setVisible(true);
         }
 
         if(displacement<=20){
-            unlockNextClue()
+            onNewClueReceived()
         }
 
         Helper.hide_loading_dialog();

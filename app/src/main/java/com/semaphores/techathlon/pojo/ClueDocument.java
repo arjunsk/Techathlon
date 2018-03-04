@@ -9,7 +9,7 @@ public class ClueDocument {
     private double lat;
     private double lon;
     private String description;
-    private boolean isImage;
+    private int is_image;
     private boolean isLocked;
 
     public ClueDocument(){
@@ -18,14 +18,14 @@ public class ClueDocument {
         this.lon = 0.0;
         this.description="";
         this.isLocked = true;
-        this.isImage = false;
+        this.is_image = 0;
     }
 
-    public ClueDocument(String description, boolean isImage, double lat, double lon){
+    public ClueDocument(String description, int is_image, double lat, double lon){
         this.lat=lat;
         this.lon = lon;
         this.description=description;
-        this.isImage = isImage;
+        this.is_image = is_image;
         this.isLocked = true;
     }
 
@@ -47,9 +47,17 @@ public class ClueDocument {
     public String getDescription() {
         return description;
     }
-    public boolean isImage() {
-        return isImage;
+
+    public int getIs_image()
+    {
+        return is_image;
     }
+
+    public void setIs_image(int is_image)
+    {
+        this.is_image = is_image;
+    }
+
     public boolean isLocked() {
         return isLocked;
     }
@@ -64,11 +72,6 @@ public class ClueDocument {
     }
     public void setDescription(String next_clue) {
         this.description = next_clue;
-    }
-
-    public void setImage(boolean isImage)
-    {
-        this.isImage = isImage;
     }
 
     public void setLocked(boolean isLocked)

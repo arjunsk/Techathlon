@@ -18,6 +18,7 @@ import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.ValueEventListener
 import android.util.Log
+import com.semaphores.techathlon.utils.Helper
 
 
 class ChooseHuntActivity : AppCompatActivity()
@@ -26,13 +27,14 @@ class ChooseHuntActivity : AppCompatActivity()
     val huntList = mutableListOf<HuntDocument>()
     lateinit var huntListAdapter: HuntListAdapter
     lateinit var huntsCollection: DatabaseReference
-    lateinit var progressDialog: Dialog
 
 
     override fun onCreate(savedInstanceState: Bundle?)
     {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_choose)
+        Helper.init_loading_dialog(this);
+        Helper.show_loading_dialog()
 
         init()
         initUI()
@@ -44,8 +46,6 @@ class ChooseHuntActivity : AppCompatActivity()
     fun init()
     {
         huntsCollection = FirebaseHelper.getRef_contests()
-        progressDialog = ProgressDialog(this@ChooseHuntActivity)
-        progressDialog.show()
     }
 
     fun initHunts()
@@ -65,7 +65,7 @@ class ChooseHuntActivity : AppCompatActivity()
                     huntList.add(contest)
                 }
 
-                progressDialog.dismiss()
+                Helper.hide_loading_dialog()
                 initRecyclerView()
             }
 

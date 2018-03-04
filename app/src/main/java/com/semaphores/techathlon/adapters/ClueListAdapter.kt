@@ -34,7 +34,7 @@ class ClueListAdapter(val clues: MutableList<ClueDocument>) : RecyclerView.Adapt
         }
         else
         {
-            if (clues[position].isImage)
+            if (clues[position].is_image == 1)
             {
                 Log.i(TAG, "clue $position is image")
                 return 2
@@ -76,7 +76,16 @@ class ClueListAdapter(val clues: MutableList<ClueDocument>) : RecyclerView.Adapt
                     2 ->
                     {
                         itemView.clue_number.text = (adapterPosition + 1).toString()
-                        itemView.clue_image.clue_image.setImageResource(R.drawable.clue_1)
+                        Log.i(TAG, "Adapter is at $adapterPosition")
+
+                        when (adapterPosition)
+                        {
+                            0 -> itemView.clue_image.clue_image.setImageResource(R.drawable.clue_2)
+                            1 -> itemView.clue_image.clue_image.setImageResource(R.drawable.clue_3)
+                            2 -> itemView.clue_image.clue_image.setImageResource(R.drawable.clue_5)
+                            else -> itemView.clue_image.clue_image.setImageResource(R.drawable.clue_8)
+                        }
+
                     }
 
                     else -> return

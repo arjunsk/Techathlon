@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Techathlon</string>
+    <string name="app_name">GoFind</string>
     <string name="clue_header">Clue #1</string>
     <string name="enter_clue">Enter clue</string>
     <string name="save_button">Save</string>

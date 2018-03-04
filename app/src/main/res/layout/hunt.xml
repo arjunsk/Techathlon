@@ -20,7 +20,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:scaleType="centerCrop"
-                android:src="@drawable/map_thumbnail_0"
+                android:src="@drawable/map_thumbnail_1"
                 android:id="@+id/hunt_thumbnail"/>
 
             <RelativeLayout
@@ -36,7 +36,7 @@
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
                     android:layout_alignParentStart="true"
-                    android:maxLength="15"
+                    android:maxLength="20"
                     android:padding="@dimen/padding_large"
                     android:text="@string/hunt_sample_0"
                     android:textColor="@color/textPrimary"
